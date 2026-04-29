@@ -17,19 +17,18 @@ jobs:
         with:
           flutter-version: '3.19.0'
 
-      - name: Diagnostic - Show project files
+      - name: Build everything
         run: |
-          cd $GITHUB_WORKSPACE
           echo "=== Current Path ==="
           pwd
-          echo "=== All Files ==="
-          ls -laR
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Build APK
-        run: flutter build apk --release
+          echo "=== Looking for pubspec.yaml ==="
+          find . -name pubspec.yaml
+          echo "=== Show all files ==="
+          ls -la
+          echo "=== Install dependencies ==="
+          flutter pub get
+          echo "=== Build APK ==="
+          flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
