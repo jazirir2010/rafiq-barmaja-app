@@ -1,9 +1,6 @@
 name: Build Rafiq Barmaja APK
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
