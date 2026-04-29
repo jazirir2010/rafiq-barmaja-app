@@ -17,16 +17,19 @@ jobs:
         with:
           flutter-version: '3.19.0'
 
-      - name: Go to project root and Install dependencies
+      - name: Diagnostic - Show project files
         run: |
           cd $GITHUB_WORKSPACE
-          ls -la pubspec.yaml
-          flutter pub get
+          echo "=== Current Path ==="
+          pwd
+          echo "=== All Files ==="
+          ls -laR
 
-      - name: Go to project root and Build APK
-        run: |
-          cd $GITHUB_WORKSPACE
-          flutter build apk --release
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
