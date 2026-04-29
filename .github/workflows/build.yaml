@@ -17,6 +17,11 @@ jobs:
         with:
           flutter-version: '3.22.0'
 
+      - name: Clean and Install dependencies
+        run: |
+          flutter clean
+          flutter pub get
+
       - name: Build everything
         run: |
           echo "=== Current Path ==="
@@ -25,8 +30,6 @@ jobs:
           find . -name pubspec.yaml
           echo "=== Show all files ==="
           ls -la
-          echo "=== Install dependencies ==="
-          flutter pub get
           echo "=== Build APK ==="
           flutter build apk --release
 
