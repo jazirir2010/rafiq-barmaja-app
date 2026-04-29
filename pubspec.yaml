@@ -11,20 +11,16 @@ dependencies:
     flutter:
         sdk: flutter
 
-    provider: ^6.0.5
-    shared_preferences: ^2.2.3
-    google_fonts: ^6.1.0
-
-    flutter_localizations:
-        sdk: flutter
-    intl: ^0.19.1
-
-    cupertino_icons: ^1.0.6
+    provider: any
+    shared_preferences: any
+    flutter_localizations: any
+    intl: any
+    cupertino_icons: any
 
 dev_dependencies:
     flutter_test:
         sdk: flutter
-    flutter_lints: ^3.0.1
+    flutter_lints: any
 
 flutter:
     uses-material-design: true
