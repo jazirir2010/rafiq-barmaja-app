@@ -1,40 +1,16 @@
 name: Build Rafiq Barmaja APK
-
-on:
-  workflow_dispatch:
-
+on: workflow_dispatch
 jobs:
   build:
-    name: Build Flutter APK
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
-
-      - name: Clean and Install dependencies
-        run: |
-          flutter clean
-          flutter pub get
-
-      - name: Build everything
-        run: |
-          echo "=== Current Path ==="
-          pwd
-          echo "=== Looking for pubspec.yaml ==="
-          find . -name pubspec.yaml
-          echo "=== Show all files ==="
-          ls -la
-          echo "=== Build APK ==="
-          flutter build apk --release
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+          flutter-version: '3.19.0'
+      - run: flutter pub get
+      - run: flutter build apk --release
+      - uses: actions/upload-artifact@v4
         with:
           name: rafiq_barmaja_apk
           path: build/app/outputs/flutter-apk/app-release.apk
